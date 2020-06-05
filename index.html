@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style media="screen">
+      body {
+        background: #E5E7E9;
+      }
+
+      .usuario-imagen {
+        height: 12rem;
+        transform: translateX(-6rem);
+      }
+    </style>
+
+    <title>VUE.JS - CV</title>
+  </head>
+  <body>
+    <div id="app"> </div>
+
+    <template id="contenido-nuevo">
+
+      <div class="container">
+        <div class="bg-primary text-light p-4">
+          <h2>{{usuario}}</h2>
+        </div>
+
+        <div class="d-flex bg-light mt-3 p-5">
+          <img :src="imagen" alt="" class="usuario-imagen">
+            <div class="mt-4">
+              <h4>{{ profesion }}</h4>
+              {{correo}} <br>
+              {{telefono}} <br>
+              {{direccion}}
+            </div>
+        </div>
+
+        <div class="container mt-3">
+          <h3 class="text-primary">HABILIDADES</h3>
+          <div v-if="mostrar">
+            <div class="bg-light p-3">
+              <h4>Experiencia</h4>
+                <div class="mt-4" v-for="(datos, index) in informacion" :key="index">
+                  <p>{{ datos.experiencia }}</p>
+                  <p>{{ datos.empresa }}</p>
+                  <p>{{ datos.tiempo }}</p>
+                </div>
+            </div>
+            <!--<img :src="imagen" alt="">-->
+
+          <div class="d-flex mt-3">
+            <div class="bg-light p-4 mr-4 w-50">
+              <h4>Educacion</h4>
+                <div class="mt-4" v-for="(datos, index) in informacion" :key="index">
+                  <p>{{ datos.escuela }}</p>
+                  <p>{{ datos.carrera }}</p>
+                  <p>{{ datos.especialidad }}</p>
+                </div>
+            </div>
+
+            <div class="bg-light p-4 w-50">
+              <h4>Skills</h4>
+                <div class="mt-4" v-for="(datos, index) in informacion" :key="index">
+                  <p>{{ datos.skill1 }}</p>
+                  <p>{{ datos.skill2 }}</p>
+                  <p>{{ datos.skill3 }}</p>
+                  <p>{{ datos.skill4 }}</p>
+                  <p>{{ datos.skill5 }}</p>
+                  <p>{{ datos.skill6 }}</p>
+                </div>
+            </div>
+          </div>
+
+          <div class="bg-light mt-3 p-4">
+            <h4>Lenguajes</h4>
+              <div class="mt-4" v-for="(datos, index) in informacion" :key="index">
+                <p>{{ datos.nativo }}</p>
+                <p>{{ datos.lenguaje }}</p>
+              </div>
+          </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary m-3" @click="toggleMostrar()">Mostrar/Ocultar</button>
+
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

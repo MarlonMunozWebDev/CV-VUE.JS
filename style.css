@@ -1,0 +1,12 @@
+.dashboard {
+  display: block;
+  background: orange;
+  height: 24rem;
+  width: 10rem;
+  border-radius: 3rem;
+}
+
+.dashboard img {
+  padding: 1rem 2rem;
+ height: 3rem;
+}
